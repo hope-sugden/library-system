@@ -1,12 +1,13 @@
 package com.example.librarysystem;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Welcome {
 
     Scanner scanner = new Scanner(System.in);
 
-    public User welcome() {
+    public User welcome() throws FileNotFoundException {
         System.out.println("Welcome to the library. Please login or create an account.");
         System.out.println(" 1\t\tlogin");
         System.out.println(" 2\t\tcreate an account");
