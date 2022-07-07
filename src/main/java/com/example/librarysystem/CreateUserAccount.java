@@ -5,19 +5,21 @@ import java.util.Scanner;
 public class CreateUserAccount {
     Scanner scanner = new Scanner(System.in);
     LibrarySystemApplication libraryVisit = new LibrarySystemApplication();
-    public String createUser() {
+    public User createUser() {
         System.out.println("Please enter a username");
         String username = scanner.nextLine();
         System.out.println("Are you admin? y/n");
         String answer = scanner.nextLine();
         if(answer.toLowerCase().equals("y")){
-            libraryVisit.setAdmin(true);
+            User newAdmin = new User(username,true);
+            LibrarySystemApplication.registeredUsers.add(newAdmin);
             System.out.println("Hi "+ username + ", thanks for creating an admin account. Welcome to the library.");
-            return username;
+            return newAdmin;
         } else if (answer.toLowerCase().equals("n")) {
-            libraryVisit.setAdmin(false);
+            User newUser = new User(username,false);
+            LibrarySystemApplication.registeredUsers.add(newUser);
             System.out.println("Hi "+ username + ", thanks for creating an account. Welcome to the library.");
-            return username;
+            return newUser;
         }
         else {
             System.out.println("Sorry "+ username + ", that was an invalid answer. Please try again.");

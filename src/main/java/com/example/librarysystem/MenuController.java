@@ -21,7 +21,7 @@ public class MenuController {
             break;
             case "3": ;
             break;
-            case "4": new Welcome().welcome();
+            case "4": LibrarySystemApplication.visitLibrary();
             break;
             case "5": System.out.println("Thanks " + name + " for visiting the library. See you next time!");
                 break;

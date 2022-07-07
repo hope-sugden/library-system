@@ -13,28 +13,20 @@ import java.util.Scanner;
 public class LibrarySystemApplication {
 
 	Scanner scanner = new Scanner(System.in);
-	Boolean isAdmin = false;
-	List<String> registeredUsers = new ArrayList<>();
+	static List<User> registeredUsers = new ArrayList<>();
 
-	public Boolean getAdmin() {
-		return isAdmin;
-	}
 
-	public void setAdmin(Boolean admin) {
-		isAdmin = admin;
-	}
-
-	public void visitLibrary() throws FileNotFoundException {
+	public static void visitLibrary() throws FileNotFoundException {
 		Welcome welcomeMessage = new Welcome();
-		String name = welcomeMessage.welcome();
+		User user = welcomeMessage.welcome();
 		DisplayMenu displayMenu = new DisplayMenu();
 		MenuController menuController = new MenuController();
-		if (isAdmin == true){
+		if (user.getAdmin() == true){
 			displayMenu.adminMenu();
-			menuController.adminControlMenu(name);
+			menuController.adminControlMenu(user.getName());
 		}else {
 			displayMenu.userMenu();
-			menuController.userControlMenu(name);
+			menuController.userControlMenu(user.getName());
 		}
 	}
 	public static void main(String[] args) throws FileNotFoundException {

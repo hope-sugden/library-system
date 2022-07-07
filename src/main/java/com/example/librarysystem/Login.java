@@ -7,16 +7,24 @@ public class Login {
     LibrarySystemApplication libraryVisit = new LibrarySystemApplication();
     CreateUserAccount createNewAccount = new CreateUserAccount();
 
-    public String login () {
+    public User login () {
         System.out.println("Please enter your user name");
+        System.out.println((LibrarySystemApplication.registeredUsers));
         String username = scanner.nextLine();
-        if(libraryVisit.registeredUsers.contains(username)){
-            System.out.println("Welcome back "+username);
-            return username;
+            User currentUser = null;
+            for (User user: LibrarySystemApplication.registeredUsers ) {
+                if(user.getName().equals(username)){
+                    System.out.println("Welcome back "+username);
+                    currentUser = user;
+                    return currentUser;
+                }
+                
+            }
+        System.out.println("Sorry this is not a registered user. Please create an account.");
+        return createNewAccount.createUser();
         }
-        else {
-            System.out.println("Sorry this is not a registered user. Please create an account.");
-            return createNewAccount.createUser();
-        }
+
+
+
     }
-}
+

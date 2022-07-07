@@ -1,7 +1,7 @@
 package com.example.librarysystem;
 
 public class DisplayMenu {
-    public void userMenu() {
+    public static void userMenu() {
         System.out.println("Menu: please choose a number from the list below.");
         System.out.println(" 1\t\tSee all books");
         System.out.println(" 2\t\tSee available books");
@@ -9,7 +9,7 @@ public class DisplayMenu {
         System.out.println(" 4\t\tLogout");
         System.out.println(" 5\t\tLeave the library");
     }
-    public void adminMenu() {
+    public static void adminMenu() {
         System.out.println("Menu: please choose a number from the list below.");
         System.out.println(" 1\t\tSee all books");
         System.out.println(" 2\t\tSee available books");
